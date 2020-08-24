@@ -5,32 +5,29 @@ function Place(location, landmark, timeOfYear, notes) {
   this.timeOfYear = timeOfYear;
   this.notes = notes;
 }
-// Buisness logic for Places I've Been//
-function Places() {
-  this.contacts = [];
+
+Place.prototype.bestFeature = function() {
+  return this.landmark + "!!!!!";
+}
+
+function placeArr() {
+  this.places = [];
   this.currentId = 0;
 }
 
-Place.prototype.addPlace = function (place) {
-  place.id = this.assignId();
-  this.places.push(place);
-}
-Place.prototype.assignId = function() {
+placeArr.prototype.assignId = function() {
   this.currentId += 1;
   return this.currentId;
 }
-Place.prototype.findPlace = function(id) {
-  for (let i=0; i< this.places.length; i++) {
-    if (this.places[i]) {
-      if (this.places[i].id == id) {
-        return this.places[i];
-      }
-    }
-  };
-  return false;
+
+placeArr.prototype.addPlace = function(destination) {
+  destination.id = this.assignId();
+  this.places.push(destination);
 }
-Place.prototype.deletePlace = function(id) {
-  for (let i=0; i< this.places.length; i++) {
+
+
+placeArr.prototype.removePlace = function(id) {
+  for (let i=0; i < this.places.length; i++) {
     if (this.places[i]) {
       if (this.places[i].id == id) {
         delete this.places[i];
@@ -40,6 +37,17 @@ Place.prototype.deletePlace = function(id) {
   };
   return false;
 }
+placeArr.prototype.findPlace = function(id){
+  for(let i =0; i < this.places.length;i++){
+    if(this.places[i].id==id){
+      return this.places[i];
+    }
+  };
+  return false;
+}
+
+// Buisness logic for Places I've Been//
+
 //let portland = new Place ('PNW', "St. Johns Bridge", "Summer", "best place to get doughnuts is VOODOO Doughnuts");
 
 //let seattle = new Place ("Downtown", "Pikes Place Market", "Fall", "The Experience Music project is awesome");
