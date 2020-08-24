@@ -1,14 +1,4 @@
 // Business logic//
-function Place(location, landmark, timeOfYear, notes) {
-  this.location = location;
-  this.landmark = landmark;
-  this.timeOfYear = timeOfYear;
-  this.notes = notes;
-}
-
-Place.prototype.bestFeature = function() {
-  return this.landmark + "!!!!!";
-}
 
 function placeArr() {
   this.places = [];
@@ -46,9 +36,44 @@ placeArr.prototype.findPlace = function(id){
   return false;
 }
 
-$(document).ready(function () {
-event.preventDefault();
+
+function Place(location, landmark, timeOfYear, notes) {
+  this.location = location;
+  this.landmark = landmark;
+  this.timeOfYear = timeOfYear;
+  this.notes = notes;
+}
+
+Place.prototype.bestFeature = function() {
+  return this.landmark + "!!!!!";
+}
 
 
+// User Interface Logic //
 
+let newPlace = new placeArr();
+
+// function displayPlaceDetails(placeArrToDisplay) //
+
+// function showPlace(placeId) // 
+
+// function attachPlaceListeners // 
+
+
+$(document).ready(function() {
+  attachContactListners();
+  $("form#question").submit(function(event) {
+    event.preventDefault();
+    const inputtedLocation = $("input#location").val();
+    const inputtedLandmark = $("input#landmark").val();
+    const inputtedTimeOfYear = $("input#time").val();
+    const inputtedNotes = $("input#notes").val();
+    let newPlace = new Place(inputtedLocation, inputtedLandmark, inputtedTimeOfYear, inputtedNotes);
+    placeArr.addPlace(newContact);
+    displayPlaceDetails(newPlace);  // <--- this is the new line!
+  })
 })
+
+
+
+
