@@ -46,14 +46,6 @@ placeArr.prototype.findPlace = function(id){
   return false;
 }
 
-// Buisness logic for Places I've Been//
-
-//let portland = new Place ('PNW', "St. Johns Bridge", "Summer", "best place to get doughnuts is VOODOO Doughnuts");
-
-//let seattle = new Place ("Downtown", "Pikes Place Market", "Fall", "The Experience Music project is awesome");
-
-//let tucson = new Place("Southwest", "Finger Rock", "Spring", "University of Arizona is a great school!");
-
 $(document).ready(function () {
 event.preventDefault();
 
